@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurusan Produksi Film</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* paling atas */
+        header {
+            background: linear-gradient(135deg, #888888, #000000, #888888);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #000000;
+        }
+        
+        
+        .hero {
+              background-color: #ffffff;  
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: #ffffff;  /*bg jurusan pf*/
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: #ffffff;  /*warna tentang jurusan*/
+            position: relative;
+        }
+         
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: #000000;  /*warna tentang jurusan*/
+            position: relative;
+        }
+        
+        section h2::after {   /*warna dibawah tentang jurusan*/
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #000000, #000000, #000000);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        
+        .sejarah-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .sejarah-text {
+            flex: 1;
+        }
+        
+        .sejarah-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sejarah-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Guru  */
+        .guru-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .guru-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .guru-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .guru-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .guru-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .guru-card:hover .guru-image img {
+            transform: scale(1.1);
+        }
+        
+        .guru-info {
+            padding: 20px;
+        }
+        
+        .guru-info h3 {
+            margin-bottom: 5px;
+            color: #000000;
+        }
+        
+        .guru-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Dokumentasi */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        
+        footer {
+            background: linear-gradient(135deg, #000000, #282828);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+       
+        /* Ikon Sosial */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: #ffffff;
+            color: #000000;
+            transform: translateY(-5px);
+        }
+    
+        
+        @media (max-width: 768px) {
+            .sejarah-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <div class="logo">PRODUKSI PERFILMAN</div>
+            <div class="tagline">Mencipta Cerita, Menginspirasi Dunia</div>
+            <nav>
+                <ul>
+                    <li><a href="#tentang">Tentang Jurusan</a></li>
+                    <li><a href="#sejarah">Sejarah</a></li>
+                    <li><a href="#guru">Guru Pengajar</a></li>
+                    <li><a href="#dokumentasi">Dokumentasi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Jurusan Produksi Film</h1>
+            <p>Produksi Film adalah jurusan yang mempelajari seluruh proses pembuatan film. mulai dari ide cerita, penulisan naskah, pengambilan gambar, penyuntingan (editing), sampai hasil akhirnya menjadi film yang siap ditonton.</p>
+        </div>
+    </section>
+
+    <!-- Tentang Jurusan -->
+    <section id="tentang">
+        <div class="container">
+            <h2>Tentang Jurusan</h2>
+            <div class="sejarah-content">
+                <div class="sejarah-text">
+                    <p>Jurusan Produksi Film merupakan salah satu program keahlian yang mempelajari proses pembuatan karya audiovisual secara menyeluruh, mulai dari penulisan naskah, perencanaan produksi, pengambilan gambar, hingga proses penyuntingan. Melalui jurusan ini, siswa dibekali kemampuan teknis dalam mengoperasikan kamera, mengatur pencahayaan, merekam suara, serta melakukan proses editing video. Selain itu, siswa juga dilatih dalam aspek kreatif seperti penyutradaraan dan sinematografi agar mampu menghasilkan karya yang berkualitas dan bermakna.</p>
+                    <br>
+                    <p>Proses pembelajaran di jurusan Produksi Film dilaksanakan secara praktik dan berorientasi pada proyek. Siswa akan membuat berbagai karya seperti film pendek, dokumenter, dan konten digital sebagai bentuk penerapan dari teori yang telah dipelajari. Kegiatan tersebut bertujuan agar siswa memahami alur kerja di industri film, melatih kerja sama tim, serta meningkatkan kedisiplinan dan tanggung jawab dalam setiap tahapan produksi.</p>
+                    <br>
+                    <p>Lulusan jurusan Produksi Film memiliki peluang karier yang luas di dunia industri kreatif, antara lain sebagai sutradara, penulis skenario, editor video, sinematografer, maupun content creator. Jurusan ini sangat tepat bagi siswa yang memiliki minat dan bakat di bidang seni visual, perfilman, dan media, serta ingin berkontribusi dalam perkembangan industri kreatif di Indonesia.</p>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Sejarah Jurusan -->
+    <section id="sejarah">
+        <div class="container">
+            <h2>Sejarah Jurusan</h2>
+            <div class="sejarah-content">
+                <div class="sejarah-image">
+                    <img src="gambar3.jpeg" alt="Sejarah Jurusan">
+                </div>
+                <div class="sejarah-text">
+                    <p>Jurusan Produksi Perfilman didirikan pada tahun 2018 sebagai respons terhadap berkembangnya industri kreatif di Indonesia, khususnya di bidang perfilman.</p>
+
+                    <p>Seiring dengan meningkatnya minat masyarakat terhadap film dan konten visual, jurusan ini berkembang pesat. siswa siswi di jurusan produksi film banyak mendapatkan penghargaan dalam perlombaan mulai dari film terbaik hingga salah satu siswanya mendapatkan penghargaan aktor terbaik.</p>
+                    <br>
+                    <p>Hingga saat ini, jurusan Produksi Perfilman telah meluluskan siswa siswi yang kreatif dan terampil dalam bidang ini. Beberapa alumni bahkan banyak yang kembali melanjutkan pendidikannya di bidang ini ke universitas ternama yang ada di Indonesia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guru Pengajar -->
+    <section id="guru">
+        <div class="container">
+            <h2>Guru Pengajar</h2>
+            <div class="guru-grid">
+                <div class="guru-card">
+                    <div class="guru-image">
+                        <img src="pak robby.jpeg" alt="pak robby">
+                    </div>
+                    <div class="guru-info">
+                        <h3>Robby Hartono, S.PD</h3>
+                        <p>Kepala Jurusan </p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="guru-card">
+                    <div class="guru-image">
+                        <img src="bu diyah.jpeg" alt="bu diyah">
+                    </div>
+                    <div class="guru-info">
+                        <h3>Diyah Innayatus Sa'adah, S. Tr. Sn</h3>
+                        <p>guru jurusan</p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="guru-card">
+                    <div class="guru-image">
+                        <img src="pak maulana.jpeg" alt="pak maulana">
+                    </div>
+                    <div class="guru-info">
+                        <h3>Maulana Mansurudin, S.Pd</h3>
+                        <p>Guru jurusan</p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="guru-card">
+                    <div class="guru-image">
+                        <img src="bu sri.jpeg" alt="bu sri">
+                    </div>
+                    <div class="guru-info">
+                        <h3>sri Mutia Widia asri s.pd</h3>
+                        <p>Guru jurusan</p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dokumentasi -->
+    <section id="dokumentasi">
+        <div class="container">
+            <h2>Dokumentasi Kegiatan</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="Dok2.png" >
+                </div>
+                <div class="gallery-item">
+                    <img src="Dok3.png" >
+                </div>
+                <div class="gallery-item">
+                    <img src="Dok4.png">
+                </div>
+                <div class="gallery-item">
+                    <img src="Dok1.png" >
+                </div>
+                <div class="gallery-item">
+                    <img src="guru.jpeg" >
+                </div>
+                <div class="gallery-item">
+                    <img src="Dok5.png">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3></h3>
+                    <p>Jurusan Produksi Perfilman</p>
+                    <p>Smkn 5 Bandung </p>
+                    <p>Jl. Bojong Koneng No.37A, Sukapada, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40191</p>
+                    <p>Email: smkn5bdg@yahoo.com</p>
+                    <p>Telepon: (022) 7100428 </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak kami</h3>
+                    <div class="social-icons">
+                        <a href="KONTAK.html" class="social-icon" title="Hubungi Kami">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+
+                        <a href="KONTAK.html" class="social-icon" title="Tentang Kami">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jurusan Produksi film - Smkn 5 Bandung </p>
+            </div>
+        </div>
+    </footer>
+
+  
+</body>
+</html>
